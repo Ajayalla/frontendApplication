@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontendApplication
+  name: FrontendApplication
   labels:
-    app: frontendApplication
+    app: FrontendApplication
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: frontendApplication-java
+      app: FrontendApplication-java
   template:
     metadata:
       labels:
-        app: frontendApplication-java
+        app: FrontendApplication-java
     spec:
       containers:
-      - name: frontendApplication-javaserver
-        image: madhublue01/frontendApplication:latest
+      - name: FrontendApplication-javaserver
+        image: madhublue01/FrontendApplication:latest
         ports:
         - containerPort: 8083
         
@@ -28,10 +28,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontendApplication-java-service
+  name: FrontendApplication-java-service
 spec:
   selector:
-    app: frontendApplication-java
+    app: FrontendApplication-java
   type: NodePort
   ports:
   - protocol: TCP
